@@ -1,0 +1,19 @@
+@use "variables" as *;
+
+.button {
+  display: block;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $white;
+  background-color: $red;
+  border-radius: 5px;
+  border: 2px solid $red;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $red;
+    background-color: transparent;
+  }
+}
