@@ -1,34 +1,36 @@
-const menuItems = document.querySelectorAll(".menu__link--has-sub");
+function initializeMenu(menuId) {
+  const menu = document.getElementById(menuId);
+  if (!menu) return;
 
-const toggleMenuItem = (menuItem) => {
-  menuItems.forEach((otherItem) => {
-    if (otherItem !== menuItem) {
-      otherItem.classList.remove("menu__link--active");
-    }
-  });
-  menuItem.classList.toggle("menu__link--active");
-};
+  const overlay = menu.querySelector(".menu__overlay");
+  const menuItems = menu.querySelectorAll(".menu__link--has-sub");
 
-menuItems.forEach((item) => {
-  item.addEventListener("click", () => {
-    toggleMenuItem(item);
-  });
+  const toggleOverlay = () => overlay.classList.toggle("menu__overlay--active");
 
-  item.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
+  const closeAllSubMenus = () => {
+    menuItems.forEach((subItem) =>
+      subItem.classList.remove("menu__link--active")
+    );
+  };
+
+  const toggleMenuItem = (item) => {
+    const isActive = item.classList.contains("menu__link--active");
+    closeAllSubMenus();
+    if (!isActive) item.classList.add("menu__link--active");
+    toggleOverlay();
+  };
+
+  menuItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
       e.preventDefault();
       toggleMenuItem(item);
-    }
-  });
-});
-
-document.addEventListener("click", (e) => {
-  if (
-    !e.target.closest(".menu__link--has-sub") &&
-    !e.target.closest(".menu__sub-menu")
-  ) {
-    menuItems.forEach((item) => {
-      item.classList.remove("menu__link--active");
     });
-  }
-});
+  });
+
+  overlay.addEventListener("click", () => {
+    closeAllSubMenus();
+    toggleOverlay();
+  });
+}
+
+initializeMenu("menu");

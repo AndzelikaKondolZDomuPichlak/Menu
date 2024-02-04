@@ -93,6 +93,7 @@
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s, visibility 0s 0.3s;
+    z-index: 2;
 
     @media (min-width: $breakpoint-lg) {
       gap: 112px;
@@ -114,6 +115,21 @@
 
     &--mb-0 {
       margin-bottom: 0;
+    }
+  }
+
+  &__overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: transparent;
+    z-index: 1;
+
+    &--active {
+      display: block;
     }
   }
 }
