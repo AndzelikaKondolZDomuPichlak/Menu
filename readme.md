@@ -21,8 +21,8 @@ Aby rozpocząć pracę z projektem, musisz mieć zainstalowany Node.js na swoim 
 1. Sklonuj repozytorium na swoją maszynę lokalną:
 
    ```
-   git clone https://twoj-adres-repozytorium.git
-   cd projekt-komponentu-wyszukiwania
+   git clone https://github.com/AndzelikaKondolZDomuPichlak/Menu.git
+   cd Menu
    ```
 
 2. Zainstaluj zależności:
