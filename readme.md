@@ -1,4 +1,4 @@
-# Projekt Menu
+# Projekt Komponentu Menu
 
 Ten projekt to aplikacja internetowa dla dynamicznego interfejsu menu. Używa Vite jako narzędzia do budowy i serwera deweloperskiego.
 
